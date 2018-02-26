@@ -1,0 +1,7 @@
+/GameServer/bin/
+/GameServer/node_modules/
+/GameServer/public/
+/GameServer/routes/
+/GameServer/views/
+/.idea/
+/GameServer/.idea/
