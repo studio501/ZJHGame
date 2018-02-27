@@ -969,7 +969,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "player-node",
+    "component": "playerNode",
     "handler": "onButtonClick",
     "customEventData": "choose_player_button"
   },

@@ -939,7 +939,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "game-world",
+    "component": "gameWorld",
     "handler": "onButtonClick",
     "customEventData": "start_game"
   },
@@ -1190,7 +1190,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "game-world",
+    "component": "gameWorld",
     "handler": "onButtonClick",
     "customEventData": "lookcard"
   },
@@ -1357,7 +1357,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "game-world",
+    "component": "gameWorld",
     "handler": "onButtonClick",
     "customEventData": "rate_1"
   },
@@ -1524,7 +1524,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "game-world",
+    "component": "gameWorld",
     "handler": "onButtonClick",
     "customEventData": "rate_2"
   },
@@ -1691,7 +1691,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "game-world",
+    "component": "gameWorld",
     "handler": "onButtonClick",
     "customEventData": "rate_5"
   },
@@ -1945,7 +1945,7 @@
     "target": {
       "__id__": 1
     },
-    "component": "game-world",
+    "component": "gameWorld",
     "handler": "onButtonClick",
     "customEventData": "pk_button"
   },
@@ -1967,7 +1967,28 @@
     "node": {
       "__id__": 30
     },
-    "_enabled": true
+    "_enabled": true,
+    "cardnode_prefab": {
+      "__uuid__": "dfdfa5fd-284b-47b7-b6c0-a090e84cfcb5"
+    },
+    "total_rate_label": {
+      "__id__": 52
+    },
+    "look_card_button": {
+      "__id__": 33
+    },
+    "rate_1_button": {
+      "__id__": 38
+    },
+    "rate_2_button": {
+      "__id__": 43
+    },
+    "rate_5_button": {
+      "__id__": 48
+    },
+    "pk_button": {
+      "__id__": 56
+    }
   },
   {
     "__type__": "cc.PrefabInfo",

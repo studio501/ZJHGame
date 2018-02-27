@@ -21,7 +21,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
      onLoad :function() {
-         this.addComponent(cc.Sprite).spriteFrame = this.sprite_frames.getSprite_Frames("card_black");
+         this.addComponent(cc.Sprite).spriteFrame = this.sprite_frames.getSpriteFrame("card_black");
      },
 
     showCard:function (data) {

@@ -61,22 +61,46 @@ cc.Class({
 
      },
     pkchoosedPlayer : function () {
-
+        this.choose_player_button.node.active = false;
     },
     playerPK : function () {
-
+        console.log("player node pk");
+        if(this.uid !== global.playerData.uid){
+            this.choose_player_button.node.active = true;
+        }
     },
-    pkResult : function () {
-
+    pkResult : function (data) {
+        console.log("player node pk result %j",data);
+        if(data.win_uid === this.uid){
+            this.pk_result_label.string = "PK WIN";
+        }else if(data.lose_uid === this.uid){
+            this.pk_result_label.string = "PK LOSE";
+        }
     },
-    playerChooseRate : function () {
+    playerChooseRate : function (data) {
+        console.log("playerNode data is %j",data);
+        if(data.uid === this.uid){
+            this.choose_rate_label.string = data.rate;
+        }
 
     },
     pushCard : function () {
-
+        if(this.getUid() === global.playerData.uid){
+            return ;
+        }
+        for(let i=0;i<3;++i){
+            let cardNode = cc.instantiate(this.card_node_prefab);
+            cardNode.parent = this.node;
+            cardNode.scale = {x:0.6,y:0.6};
+            cardNode.position = cc.pAdd(this.card_pos[this.index].position,cc.p((3-1)*(-0.5)*40 + 40 *i,0));
+        }
     },
-    changeHouseManager : function () {
-
+    changeHouseManager : function (uid) {
+        console.log("player node change house manager = "+uid);
+        this.house_manager_label.string = "";
+        if(uid === this.uid){
+            this.house_manager_label.string = "房主";
+        }
     },
 
     init : function (uid,index) {
@@ -100,6 +124,7 @@ cc.Class({
         global.gameEventListener.off("pk_result",this.pkResult);
     },
     onButtonClick : function (event, customData) {
+        console.log("playerNode onButtonClick %j",customData);
         if(customData === "choose_player_button"){
             cc.log("choose me = "+this.uid);
             global.eventlistener.fire("pk_choose_player",this.uid);

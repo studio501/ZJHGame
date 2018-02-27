@@ -34,6 +34,23 @@ cc.Class({
             global.socket.emit("login",uid);
         });
 
+        global.eventlistener.on("start_game",()=>{
+           console.log("player house manager click start game");
+            global.socket.emit("start_game");
+        });
+
+        global.eventlistener.on("look_card",()=>{
+            global.socket.emit("look_card");
+        });
+
+        global.eventlistener.on("player_choose_rate",(data)=>{
+            global.socket.emit("player_choose_rate",data);
+        });
+
+        global.eventlistener.on("pk_choose_player",(uid)=>{
+            global.socket.emit("pk_choose_player",uid);
+        });
+
         global.socket.on("sync_data",(data)=>{
             console.log("sync_data = "+JSON.stringify(data));
             this.enterGameWorld(data);
@@ -51,7 +68,31 @@ cc.Class({
         global.socket.on("change_house_manager",(uid)=>{
             console.log("house manager is change "+uid);
             global.gameEventListener.fire("change_house_manager",uid);
-        })
+        });
+
+        global.socket.on("push_card",()=>{
+            console.log("server send message push card");
+            global.gameEventListener.fire("push_card");
+        });
+
+        global.socket.on("show_card",(card_list)=>{
+            global.gameEventListener.fire("show_card",card_list);
+        });
+
+        global.socket.on("player_choose_rate",(data)=>{
+            console.log("player choose rate = %j",data);
+            global.gameEventListener.fire("player_choose_rate",data);
+        });
+
+        global.socket.on("turn_player_message",(data)=>{
+            console.log("turn_player_message "+JSON.stringify(data));
+            global.gameEventListener.fire("turn_player_message",data);
+        });
+
+        global.socket.on("pk_result",(data)=>{
+            console.log("pk result %j",data);
+            global.gameEventListener.fire("pk_result",data);
+        });
         this.enterMainWorld();
     } ,
 

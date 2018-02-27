@@ -74,6 +74,10 @@ cc.Class({
                 this.game_ready.active = true;
             }
         });
+
+        global.gameEventListener.on("push_card",()=>{
+            this.game_ready.active = false;
+        });
     },
 
     createPlayer : function (uid, index) {
@@ -95,6 +99,22 @@ cc.Class({
         console.log("customData = "+customData);
         switch (customData){
             case "start_game":
+                global.eventlistener.fire("start_game");
+                break;
+            case "lookcard":
+                global.eventlistener.fire("look_card");
+                break;
+            case "rate_1":
+                global.eventlistener.fire("player_choose_rate",1);
+                break;
+            case "rate_2":
+                global.eventlistener.fire("player_choose_rate",2);
+                break;
+            case "rate_5":
+                global.eventlistener.fire("player_choose_rate",5);
+                break;
+            case "pk_button":
+                global.gameEventListener.fire("player_pk");
                 break;
             default:
                 break;
